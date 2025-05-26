@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="chat-container">
+
+        <div id="chat-header">
+            <h2>HiFi Chat (<span id="user-count">0</span>)</h2>
+            <div id="user-list"></div>
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chat-box"></div>
+        <p id="typing" style="margin: 5px; color: gray;"></p>
+        <form id="chat-form">
+            <input id="message" type="text" placeholder="Type a message..." autocomplete="off" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./client.js"></script>
+</body>
+
+</html>
