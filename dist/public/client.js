@@ -55,15 +55,24 @@ socket.on('chat message', ({ user, text }) => {
 
 function appendMessage(user, text) {
     const msgDiv = document.createElement('div');
-    msgDiv.classList.add('message-card');
-
     const isSelf = user === username;
 
-    msgDiv.classList.add(isSelf ? 'sent' : 'received');
+    msgDiv.classList.add('msg', isSelf ? 'right-msg' : 'left-msg');
     msgDiv.innerHTML = `
-    ${!isSelf ? `<div class="user">${user}</div>` : ''}
-    <div class="msg">${text}</div>
-  `;
+        <div class="msg-img" style="background-image: url(${isSelf ?
+            'https://image.flaticon.com/icons/svg/145/145867.svg' :
+            'https://image.flaticon.com/icons/svg/327/327779.svg'})">
+        </div>
+
+        <div class="msg-bubble">
+            <div class="msg-info">
+                <div class="msg-info-name">${user}</div>
+                <div class="msg-info-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+            </div>
+
+            <div class="msg-text">${text}</div>
+        </div>
+    `;
     chatBox.appendChild(msgDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
 }

@@ -2,28 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Chat Room</title>
-    <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiFi Chat</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <div class="chat-container">
+    <section class="msger">
+        <header class="msger-header">
+            <div class="msger-header-title">
+                <i class="fas fa-comment-alt"></i> Hifi Chat(<span id="user-count">0</span>)
+            </div>
+            <div id="user-list">Users: </div>
+            <!-- Add a user count and list display -->
+            <div class="msger-header-options">
+                <span><i class="fas fa-cog"></i></span>
+            </div>
+        </header>
 
-        <div id="chat-header">
-            <h2>HiFi Chat (<span id="user-count">0</span>)</h2>
-            <div id="user-list"></div>
-        </div>
+        <!-- Add inside <main class="msger-chat"> -->
+        <main class="msger-chat" id="chat-box"></main>
 
-        <!-- Chat Box -->
-        <div id="chat-box"></div>
-        <p id="typing" style="margin: 5px; color: gray;"></p>
-        <form id="chat-form">
-            <input id="message" type="text" placeholder="Type a message..." autocomplete="off" />
-            <button type="submit">Send</button>
+        <!-- Add below the chat box for typing indication -->
+        <div id="typing" style="padding: 5px 15px; color: gray; font-style: italic;"></div>
+
+        <!-- Fix the form tag -->
+        <form id="chat-form" class="msger-inputarea">
+            <input type="text" id="message" class="msger-input" placeholder="Enter your message..." autocomplete="off">
+            <button type="submit" class="msger-send-btn">Send</button>
         </form>
-    </div>
 
+    </section>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./client.js"></script>
 </body>
